@@ -37,4 +37,8 @@ namespace pb {
         }
     }
 
+    float Entity::distance(sf::Vector2f point) {
+        return sqrt((rect.getPosition().x - point.x) * (rect.getPosition().x - point.x) + (rect.getPosition().y - point.y) * (rect.getPosition().y - point.y));
+    }
+
 };

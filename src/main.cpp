@@ -1,5 +1,7 @@
 #include "entity.hpp"
 
+#include <iostream>
+
 int main(int argv, char** argc) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "PixelBoom", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
@@ -18,12 +20,14 @@ int main(int argv, char** argc) {
         }
 
         sf::Vector2f toMove = sf::Vector2f(sf::Mouse::getPosition(window));
+        std::cout << entity.distance(toMove) << "\n";
 
         window.clear();
 
         entity.update(toMove);
         entity.move(5.0f);
         entity.draw(window);
+
 
         window.display();
     }

@@ -16,6 +16,7 @@ namespace pb {
         void update(sf::Vector2f toMove);
         void draw(sf::RenderTarget &target);
         void move(float speed);
+        float distance(sf::Vector2f point);
 
     private:
         sf::Texture texture;
