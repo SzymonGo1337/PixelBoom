@@ -1,17 +1,11 @@
-#include <SFML/Graphics.hpp>
-#include <math.h>
+#include "entity.hpp"
 
 int main(int argv, char** argc) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "PixelBoom", sf::Style::Titlebar | sf::Style::Close);
+    window.setFramerateLimit(60);
 
-    sf::Texture texture;
-    texture.loadFromFile("res/player.png");
-
-    sf::RectangleShape rect;
-    rect.setSize(sf::Vector2f(texture.getSize().x * 5, texture.getSize().y * 5));
-    rect.setOrigin(rect.getSize().x / 2, rect.getSize().y / 2);
-    rect.setTexture(&texture);
-    rect.setPosition(sf::Vector2f(1280.0f / 2, 720.0f / 2));
+    pb::Entity entity("res/player.png", sf::Vector2f(5.0f, 5.0f));
+    entity.set(sf::Vector2f(1280.0f / 2, 720.0f / 2));
 
     while(window.isOpen()) {
         sf::Event event;
@@ -27,10 +21,9 @@ int main(int argv, char** argc) {
 
         window.clear();
 
-        float rotation = (atan2(toMove.x - rect.getPosition().x, toMove.y - rect.getPosition().y)) * 180 / 3.14159265;
-        rect.setRotation(-rotation);
-
-        window.draw(rect);
+        entity.update(toMove);
+        entity.move(5.0f);
+        entity.draw(window);
 
         window.display();
     }
