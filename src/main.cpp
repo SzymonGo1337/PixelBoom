@@ -6,8 +6,8 @@ int main(int argv, char** argc) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "PixelBoom", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
 
-    pb::Entity entity("res/player.png", sf::Vector2f(5.0f, 5.0f));
-    entity.set(sf::Vector2f(1280.0f / 2, 720.0f / 2));
+    pb::Entity player("res/player.png", sf::Vector2f(5.0f, 5.0f));
+    player.set(sf::Vector2f(1280.0f / 2, 720.0f / 2));
 
     while(window.isOpen()) {
         sf::Event event;
@@ -20,14 +20,13 @@ int main(int argv, char** argc) {
         }
 
         sf::Vector2f toMove = sf::Vector2f(sf::Mouse::getPosition(window));
-        std::cout << entity.distance(toMove) << "\n";
+        std::cout << player.distance(toMove) << "\n";
 
         window.clear();
 
-        entity.update(toMove);
-        entity.move(5.0f);
-        entity.draw(window);
-
+        player.update(toMove);
+        player.move(5.0f);
+        player.draw(window);
 
         window.display();
     }
