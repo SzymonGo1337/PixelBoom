@@ -16,6 +16,5 @@ OBJ_NAME = build/app
 
 #This is the target that compiles our executable
 all : $(OBJS)
-	mkdir build
 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 	cp res/*.png build/res
