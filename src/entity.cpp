@@ -10,7 +10,7 @@ namespace pb {
         rect.setOrigin(sf::Vector2f(rect.getSize().x / 2, rect.getSize().y / 2));
     }
 
-    void Entity::set(sf::Vector2f pos) {
+    void Entity::setPosition(sf::Vector2f pos) {
         rect.setPosition(pos);
     }
 

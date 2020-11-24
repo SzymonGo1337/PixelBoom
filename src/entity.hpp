@@ -2,9 +2,7 @@
 #ifndef   PIXELBOOM_ENTITY
 #define   PIXELBOOM_ENTITY
 
-#include <SFML/Graphics.hpp>
-#include <math.h>
-#include <string>
+#include "core.hpp"
 
 namespace pb {
 
@@ -12,14 +10,14 @@ namespace pb {
     public:
         Entity(std::string filename, sf::Vector2f multiplier);
 
-        void set(sf::Vector2f pos);
+        void setPosition(sf::Vector2f pos);
         void update(sf::Vector2f toMove);
         void draw(sf::RenderTarget &target);
         void move(float speed);
 
         float distance(sf::Vector2f point);
 
-        sf::Vector2f get() { return rect.getPosition(); }
+        sf::Vector2f getPosition() { return rect.getPosition(); }
 
     private:
         sf::Texture texture;
