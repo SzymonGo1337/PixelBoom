@@ -9,6 +9,9 @@
 #include <vector>
 #include <math.h>
 
+#include "renderer.hpp"
+#include "entity.hpp"
+
 #define PB_SCENE_DEBUG -1
 #define PB_SCENE_MENU 0
 #define PB_SCENE_GAME 1
@@ -25,6 +28,17 @@ namespace pb {
     private:
         sf::Clock clock;
         float deltaTime;
+    };
+
+
+
+    class Window {
+    public:
+        Window(int framerate);
+        void update();
+
+    private:
+        sf::RenderWindow* window;
     };
 
 };
