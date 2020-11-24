@@ -17,8 +17,14 @@ namespace pb {
             while(window->pollEvent(event)) {
                 if(event.type == sf::Event::Closed) {
                     window->close();
-                } else if(event.key.code == sf::Keyboard::Escape) {
+                } else if(event.key.code == sf::Keyboard::Escape && focus) {
                     window->close();
+                }
+
+                if(event.type == sf::Event::GainedFocus) {
+                    focus = true;
+                } else if(event.type == sf::Event::LostFocus) {
+                    focus = false;
                 }
             }
 

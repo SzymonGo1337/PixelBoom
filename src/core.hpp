@@ -39,6 +39,7 @@ namespace pb {
 
     private:
         sf::RenderWindow* window;
+        bool focus;
     };
 
 };
