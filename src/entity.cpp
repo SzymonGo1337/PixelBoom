@@ -1,6 +1,11 @@
 #include "entity.hpp"
 
 namespace pb {
+    Entity::Entity() {
+        rect.setSize(sf::Vector2f(32.0f * 5, 32.0f * 5));
+        rect.setFillColor(sf::Color::Red);
+        rect.setOrigin(sf::Vector2f(rect.getSize().x / 2, rect.getSize().y / 2));
+    }
 
     Entity::Entity(std::string filename, sf::Vector2f multiplier) {
         texture.loadFromFile(filename);

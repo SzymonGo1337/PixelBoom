@@ -8,6 +8,7 @@ namespace pb {
 
     class Entity {
     public:
+        Entity();
         Entity(std::string filename, sf::Vector2f multiplier);
 
         void setPosition(sf::Vector2f pos);
