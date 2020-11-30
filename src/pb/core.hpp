@@ -2,6 +2,12 @@
 #ifndef   PIXELBOOM_CORE
 #define   PIXELBOOM_CORE
 
+#ifdef __unix__
+#define PIXELBOOM_UNIX
+#elif defined(_WIN32) || defined(WIN32)
+#define PIXELBOOM_WINDOWS
+#endif
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -11,6 +17,7 @@
 
 #include "renderer.hpp"
 #include "entity.hpp"
+#include "error.hpp"
 
 #define PB_SCENE_DEBUG -1
 #define PB_SCENE_MENU 0

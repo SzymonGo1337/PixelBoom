@@ -1,5 +1,6 @@
 #include "core.hpp"
 
+pb::ErrorHandler errorHandler;
 pb::Renderer renderer;
 namespace pb {
     Timer::Timer() {
@@ -7,6 +8,7 @@ namespace pb {
     }
 
     Window::Window(int framerate) {
+        errorHandler.checkError();
         window = new sf::RenderWindow(sf::VideoMode(1280, 720), "PixelBoom", sf::Style::Titlebar | sf::Style::Close);
         window->setFramerateLimit(framerate);
     }
