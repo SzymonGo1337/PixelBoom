@@ -4,6 +4,7 @@
 
 #include "core.hpp"
 #include "entity.hpp"
+#include "gui.hpp"
 
 namespace pb {
 

@@ -1,4 +1,4 @@
-#include "core.hpp"
+#include "pb/core.hpp"
 
 int main(int argv, char** argc) {
     pb::Window window(60);
