@@ -1,21 +1,17 @@
 #pragma once
-#ifndef   PIXELBOOM_ERROR
-#define   PIXELBOOM_ERROR
+#ifndef   PIXELBOOM_ERRORHANDLER
+#define   PIXELBOOM_ERRORHANDLER
 
 #include <iostream>
+#include <chrono>
 
 #include "termcolor.hpp"
 #include "core.hpp"
 
 namespace pb {
     
-    class ErrorHandler {
-    public:
-        ErrorHandler();
-
-        void checkError();
-    };
+    void HandleError();
 
 };
 
-#endif // PIXELBOOM_ERROR
+#endif // PIXELBOOM_ERRORHANDLER

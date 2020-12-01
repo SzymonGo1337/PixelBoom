@@ -8,7 +8,10 @@ namespace pb {
     }
 
     Entity::Entity(std::string filename, sf::Vector2f multiplier) {
-        texture.loadFromFile(filename);
+        if(!texture.loadFromFile(filename)) {
+            HandleError();
+        }
+
 
         rect.setSize(sf::Vector2f(texture.getSize().x * multiplier.x, texture.getSize().y * multiplier.y));
         rect.setTexture(&texture);
