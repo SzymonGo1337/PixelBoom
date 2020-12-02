@@ -9,18 +9,21 @@ namespace pb {
     
     class Component {
     public:
+        bool isButton;
         Component();
         Component(sf::Vector2f size, sf::Vector2f pos);
 
+        void setButton() { isButton = true; };
         void setSize(sf::Vector2f size);
         void setPosition(sf::Vector2f pos);
+        void setColor(sf::Color color);
 
         void draw(sf::RenderWindow &target);
+        void update(sf::RenderWindow &target, void (*run)());
 
     private:
         sf::RectangleShape rect;
     };
-
 
     class GUIManager {
     public:

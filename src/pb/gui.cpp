@@ -2,10 +2,12 @@
 
 namespace pb {
     Component::Component() {
+        isButton = false;
         rect.setFillColor(sf::Color::Red);
     }
 
     Component::Component(sf::Vector2f size, sf::Vector2f pos) {
+        isButton = false;
         rect.setFillColor(sf::Color::Red);
         rect.setSize(size);
         rect.setPosition(pos);
@@ -19,8 +21,18 @@ namespace pb {
         rect.setPosition(pos);
     }
 
+    void Component::setColor(sf::Color color) {
+        rect.setFillColor(color);
+    }
+
     void Component::draw(sf::RenderWindow &target) {
         target.draw(rect);
+    }
+
+    void Component::update(sf::RenderWindow &target, void (*run)()) {
+        if(rect.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(target))) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && isButton) {
+            run();
+        }
     }
 
     GUIManager::GUIManager() {
