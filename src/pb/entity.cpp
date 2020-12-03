@@ -45,6 +45,14 @@ namespace pb {
         }
     }
 
+    void Entity::moveTowards(sf::Vector2f point, float speed) {
+        float rotation = (atan2(point.x - rect.getPosition().x, point.y - rect.getPosition().y)) * 180 / 3.14159265;
+        float dx = cos(-rotation) * speed;
+        float dy = sin(-rotation) * speed;
+        rect.setPosition(rect.getPosition() + sf::Vector2f(dx, dy));
+        rect.setRotation(-rotation);
+    }
+
     float Entity::distance(sf::Vector2f point) {
         return sqrt((rect.getPosition().x - point.x) * (rect.getPosition().x - point.x) + (rect.getPosition().y - point.y) * (rect.getPosition().y - point.y));
     }

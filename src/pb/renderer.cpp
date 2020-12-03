@@ -30,7 +30,8 @@ namespace pb {
             player.move(5.0f);
             player.draw(target);
 
-            ent1.update(player.getPosition());
+            //ent1.update(player.getPosition());
+            ent1.moveTowards(player.getPosition(), 3.0f);
             ent1.draw(target);
 
             com1.update(target, runThis);

@@ -16,6 +16,7 @@ namespace pb {
         void draw(sf::RenderTarget &target);
         void move(float speed);
 
+        void moveTowards(sf::Vector2f point, float speed);
         float distance(sf::Vector2f point);
 
         sf::Vector2f getPosition() { return rect.getPosition(); }
