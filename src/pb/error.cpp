@@ -5,6 +5,9 @@ namespace pb {
         #define PIXELBOOM_ERROR
         std::time_t t = std::time(0);
         std::tm* now = std::localtime(&t);
-        std::cout << termcolor::yellow << "[" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << "] " << termcolor::red << "[PixelBoom]" << termcolor::white << " Error: " << sf::err << termcolor::white << "\n";
+        #ifdef PIXELBOOM_WINDOWS
+            system("Setlocal");
+        #endif
+        std::cout << "[33m" << "[" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << "] " << "[31m" << "[PixelBoom]" << "[0m" << " Error: " << sf::err << "[0m" << "\n";
     }
 };

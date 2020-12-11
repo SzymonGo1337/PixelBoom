@@ -27,7 +27,7 @@ namespace pb {
             sf::Vector2f mouse = sf::Vector2f(sf::Mouse::getPosition(target));
 
             player.update(mouse);
-            player.move(5.0f);
+            player.move();
             player.draw(target);
 
             //ent1.update(player.getPosition());

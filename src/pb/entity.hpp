@@ -14,7 +14,7 @@ namespace pb {
         void setPosition(sf::Vector2f pos);
         void update(sf::Vector2f toMove);
         void draw(sf::RenderTarget &target);
-        void move(float speed);
+        void move();
 
         void moveTowards(sf::Vector2f point, float speed);
         float distance(sf::Vector2f point);
@@ -24,6 +24,12 @@ namespace pb {
     private:
         sf::Texture texture;
         sf::RectangleShape rect;
+
+        sf::Vector2f position;
+        sf::Vector2f velocity;
+        float maxSpeed;
+        float acceleration;
+        float decelaration;
     };
 
 };
