@@ -17,11 +17,13 @@ namespace pb {
         void setSize(sf::Vector2f size);
         void setPosition(sf::Vector2f pos);
         void setColor(sf::Color color);
+        void setText(std::string toText, int fontSize, sf::Font font, sf::Color color);
 
         void draw(sf::RenderWindow &target);
         void update(sf::RenderWindow &target, void (*run)());
 
     private:
+        sf::Text text;
         sf::RectangleShape rect;
     };
 

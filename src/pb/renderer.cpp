@@ -13,8 +13,12 @@ void runThis() {
     std::cout << "test" << "\n";
 }
 
+sf::Font testFont;
+
 namespace pb {
     Renderer::Renderer() {
+        testFont.loadFromFile("res/arial.ttf");
+
         player.setPosition(sf::Vector2f(1280.0f / 2, 720.0f / 2));
         ent1.setPosition(sf::Vector2f(200.0f, 200.0f));
 
@@ -35,6 +39,7 @@ namespace pb {
             ent1.draw(target);
 
             com1.update(target, runThis);
+            com1.setText("test", 24, testFont, sf::Color::White);
             manager.update(target);
         }
 

@@ -16,6 +16,7 @@ namespace pb {
         void draw(sf::RenderTarget &target);
         void move();
 
+        void normalize(float x, float y);
         void moveTowards(sf::Vector2f point, float speed);
         float distance(sf::Vector2f point);
 

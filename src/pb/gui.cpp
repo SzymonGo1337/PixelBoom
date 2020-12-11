@@ -25,8 +25,20 @@ namespace pb {
         rect.setFillColor(color);
     }
 
+    void Component::setText(std::string toText, int fontSize, sf::Font font, sf::Color color) {
+        text.setFont(font);
+        text.setString(toText);
+
+        sf::FloatRect textRect = text.getGlobalBounds();
+        sf::FloatRect centerRect = sf::FloatRect(textRect.left, textRect.top, textRect.width / 2, textRect.height / 2);
+
+        text.setPosition(centerRect.left, centerRect.top);
+        text.setFillColor(color);
+    }
+
     void Component::draw(sf::RenderWindow &target) {
         target.draw(rect);
+        target.draw(text);
     }
 
     void Component::update(sf::RenderWindow &target, void (*run)()) {

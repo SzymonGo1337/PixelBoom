@@ -67,11 +67,16 @@ namespace pb {
         rect.setPosition(position);
     }
 
+    void Entity::normalize(float x, float y) {
+        float norm = sqrt(x * x + y * y);
+        x = x / norm;
+        y = y / norm;
+    }
+
     void Entity::moveTowards(sf::Vector2f point, float speed) {
-        update(point);
-        float dx = cos(rect.getRotation()) * speed;
-        float dy = sin(rect.getRotation()) * speed;
-        rect.setPosition(sf::Vector2f(rect.getPosition().x + dx, rect.getPosition().y + dy));
+        sf::Vector2f dist = point - rect.getPosition();
+        normalize(dist.x, dist.y);
+        rect.setPosition(sf::Vector2f(rect.getPosition().x + dist.x, rect.getPosition().y + dist.y));
     }
 
     float Entity::distance(sf::Vector2f point) {
