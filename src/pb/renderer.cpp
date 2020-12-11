@@ -30,13 +30,14 @@ namespace pb {
         if(id == PB_SCENE_DEBUG) {
             sf::Vector2f mouse = sf::Vector2f(sf::Mouse::getPosition(target));
 
+            //ent1.update(player.getPosition());
+            ent1.moveTowards(player.getPosition());
+            ent1.draw(target);
+
             player.update(mouse);
             player.move();
             player.draw(target);
 
-            //ent1.update(player.getPosition());
-            ent1.moveTowards(player.getPosition(), 3.0f);
-            ent1.draw(target);
 
             com1.update(target, runThis);
             com1.setText("test", 24, testFont, sf::Color::White);

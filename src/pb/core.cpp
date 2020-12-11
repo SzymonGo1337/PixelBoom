@@ -29,7 +29,7 @@ namespace pb {
                 }
             }
 
-            window->clear();
+            window->clear(sf::Color(81.0f, 57.0f, 153.0f, 255.0f));
 
             renderer.update(*window, PB_SCENE_DEBUG);
 

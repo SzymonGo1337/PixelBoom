@@ -67,13 +67,14 @@ namespace pb {
         rect.setPosition(position);
     }
 
-    void Entity::normalize(float x, float y) {
+    void Entity::normalize(float &x, float &y) {
         float norm = sqrt(x * x + y * y);
         x = x / norm;
         y = y / norm;
     }
 
-    void Entity::moveTowards(sf::Vector2f point, float speed) {
+    void Entity::moveTowards(sf::Vector2f point) {
+        update(point);
         sf::Vector2f dist = point - rect.getPosition();
         normalize(dist.x, dist.y);
         rect.setPosition(sf::Vector2f(rect.getPosition().x + dist.x, rect.getPosition().y + dist.y));
