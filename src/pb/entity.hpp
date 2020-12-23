@@ -17,7 +17,7 @@ namespace pb {
         void move();
 
         void normalize(float &x, float &y);
-        void moveTowards(sf::Vector2f point);
+        void moveTowards(sf::Vector2f point, float multiplier);
         float distance(sf::Vector2f point);
 
         sf::Vector2f getPosition() { return rect.getPosition(); }

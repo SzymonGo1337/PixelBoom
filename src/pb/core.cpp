@@ -9,7 +9,7 @@ namespace pb {
     Window::Window(int framerate) {
         window = new sf::RenderWindow(sf::VideoMode(1280, 720), "PixelBoom", sf::Style::Titlebar | sf::Style::Close);
         window->setFramerateLimit(framerate);
-        pb::HandleError();
+        //pb::HandleError();
     }
 
     void Window::update() {

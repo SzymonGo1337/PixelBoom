@@ -73,11 +73,11 @@ namespace pb {
         y = y / norm;
     }
 
-    void Entity::moveTowards(sf::Vector2f point) {
+    void Entity::moveTowards(sf::Vector2f point, float multiplier) {
         update(point);
         sf::Vector2f dist = point - rect.getPosition();
         normalize(dist.x, dist.y);
-        rect.setPosition(sf::Vector2f(rect.getPosition().x + dist.x, rect.getPosition().y + dist.y));
+        rect.setPosition(sf::Vector2f(rect.getPosition().x + dist.x * multiplier, rect.getPosition().y + dist.y * multiplier));
     }
 
     float Entity::distance(sf::Vector2f point) {
